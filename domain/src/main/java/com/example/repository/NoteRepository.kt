@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface NoteRepository {
 
-    fun createNote(note: Note) : Flow<Either<String, Note>>
+    fun createNote() : Flow<Either<String, Note>>
 
     fun deleteNote() :  Flow<Either<String, Note>>
 

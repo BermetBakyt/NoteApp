@@ -5,22 +5,39 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.noteapp.R
 import com.example.noteapp.databinding.FragmentRegisterBinding
 import com.example.noteapp.presentation.base.BaseFragment
+import com.example.noteapp.presentation.extensions.showToastShort
 import com.google.firebase.auth.FirebaseAuth
 
 class UserRegisterFragment(
-) : BaseFragment<UserRegisterViewModel, FragmentRegisterBinding >(
+) : BaseFragment<UserRegisterViewModel, FragmentRegisterBinding>(
     R.layout.fragment_register
 ) {
 
     override val binding by viewBinding(FragmentRegisterBinding::bind)
     override val viewModel: UserRegisterViewModel by viewModels()
-    private lateinit var firebaseAuth: FirebaseAuth
 
-    override fun setupListeners() = with(binding){
+    override fun setupListeners() = with(binding) {
 
-        btnRegister.setOnClickListener{
+        btnRegister.setOnClickListener {
 
-            if(emailField.text.toString().isNotEmpty() && passwordField.text.toString().isNotEmpty())
+            if (emailField.text.toString().isNotEmpty() && passwordField.text.toString()
+                    .isNotEmpty()
+            ) {
+                viewModel.registerUser()
+            }
         }
+    }
+
+    override fun setupSubscribers() = with(binding) {
+        viewModel.userRegisterState.collectUIState(
+            onError = {
+                showToastShort(it)
+            },
+            onSuccess = {
+                usernameField.setText(it.name)
+                emailField.setText(it.email)
+                passwordField.setText(it.password)
+            }
+        )
     }
 }

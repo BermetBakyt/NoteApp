@@ -11,4 +11,6 @@ interface FirestoreService {
         suspend fun updateNote(note: NoteDto)
 
         suspend fun fetchAllNotes() : List<NoteDto>
+
+        suspend fun searchNote(note: NoteDto) : NoteDto
     }

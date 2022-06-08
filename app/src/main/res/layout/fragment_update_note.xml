@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/noteContentParent"
+    android:id="@+id/fragmentCreateNote"
     tools:context=".presentation.ui.fragments.update.UpdateNoteFragment">
 
     <RelativeLayout

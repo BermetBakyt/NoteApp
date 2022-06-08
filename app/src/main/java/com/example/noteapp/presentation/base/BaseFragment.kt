@@ -20,7 +20,6 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     @LayoutRes layoutId: Int
 ) : Fragment(layoutId) {
 
-    abstract val viewLifecycleOwner: Any
     protected abstract val viewModel: ViewModel
     protected abstract val binding: Binding
 
@@ -55,7 +54,6 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
             }
         }
     }
-
 
     protected fun <T> StateFlow<UIState<T>>.collectUIState(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
@@ -99,3 +97,4 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         }
     }
 }
+

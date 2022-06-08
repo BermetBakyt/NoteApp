@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.noteapp.ui.fragments.login.UserLoginFragment"
+        android:name="com.example.noteapp.presentation.ui.fragments.login.UserLoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.noteapp.ui.fragments.login.UserRegisterFragment"
+        android:name="com.example.noteapp.presentation.ui.fragments.register.UserRegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -50,10 +50,13 @@
         <action
             android:id="@+id/action_updateNoteFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/createNoteFragment"
-        android:name=".presentation.ui.fragments.create.CreateNoteFragment"
+        android:name="com.example.noteapp.presentation.ui.fragments.create.CreateNoteFragment"
         android:label="fragment_create_note"
         tools:layout="@layout/fragment_create_note" />
 </navigation>
