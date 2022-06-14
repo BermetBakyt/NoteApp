@@ -2,27 +2,25 @@ package com.example.db.dao
 
 import androidx.room.*
 import com.example.db.entities.NoteEntity
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NoteDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addNote(note: NoteEntity)
+    fun addNote(note: NoteEntity) : NoteEntity
 
     @Update
-    suspend fun updateNote(note: NoteEntity)
+    suspend fun updateNote() : NoteEntity
 
     @Query("SELECT * FROM NoteEntity ORDER BY id DESC")
-    fun fetchAllNotes() : List<NoteEntity>
+    suspend fun fetchAllNotes() : List<NoteEntity>
 
-    @Query("SELECT * FROM NoteEntity WHERE title LIKE:query OR content LIKE:query OR date LIKE :query ORDER BY id DESC")
+    @Query("SELECT * FROM NoteEntity WHERE title LIKE:query OR content LIKE:query")
     suspend fun searchNote(query: String) : List<NoteEntity>
 
     @Delete
-    suspend fun deleteNote(note: NoteEntity)
+    suspend fun deleteNote() : NoteEntity
 
-    @Query("SELECT * From NoteEntity")
-    suspend fun getNoteById(id: Int): NoteEntity
-
+    @Query("SELECT * FROM NoteEntity WHERE id= :id")
+    suspend fun getNoteById(id: Int) : NoteEntity
 }

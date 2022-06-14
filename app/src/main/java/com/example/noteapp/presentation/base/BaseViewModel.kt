@@ -9,7 +9,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
-
 open class BaseViewModel : ViewModel() {
 
     //Creates [MutableStateFlow] with [UIState] and the given initial state [UIState.Idle]
@@ -20,7 +19,7 @@ open class BaseViewModel : ViewModel() {
 
     protected fun <T, S> Flow<Either<String, T>>.collectRequest(
         state: MutableStateFlow<UIState<S>>,
-        mappedData: (List<Note>) -> List<Unit>
+        mappedData: (T) -> S
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             state.value = UIState.Loading()

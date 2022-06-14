@@ -1,7 +1,5 @@
 package com.example.noteapp.presentation.models
 
-import com.example.model.User
-
 data class UserUI(
     val id: String,
     val name: String,
@@ -9,6 +7,3 @@ data class UserUI(
     val password: String
 )
 
-fun User.toUserUI() = UserUI(
-    id, name, email, password
-)

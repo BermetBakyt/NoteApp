@@ -37,7 +37,7 @@ class UpdateNoteFragment : BaseFragment<UpdateNoteViewModel, FragmentUpdateNoteB
                 showToastShort(it)
             },
             onSuccess = {
-                editNoteContent.setText(it.content)
+                editTitle.setText(it.content)
                 editTitle.setText(it.title)
                 //to do - save the color picked
             }

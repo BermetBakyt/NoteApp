@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragmentCreateNote"
-    tools:context=".presentation.ui.fragments.create.CreateNoteFragment">
+    tools:context=".presentation.ui.fragments.create.CreateNoteFragment"
+   >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -38,7 +39,7 @@
             android:ellipsize="end"
             android:fontFamily="@font/google_sans_regular"
             tools:text="Edited On"
-            android:textColor="black"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_centerVertical="true"
             android:textStyle="bold"
@@ -92,21 +93,6 @@
                     android:fontFamily="@font/google_sans_medium"
                     android:hint="Note Title"/>
 
-                <com.yahiaangelo.markdownedittext.MarkdownEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="22dp"
-                    android:layout_marginEnd="22dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:fontFamily="@font/google_sans_regular"
-                    android:hint="Note"
-                    android:importantForAutofill="no"
-                    android:inputType="none"
-                    android:padding="10dp"
-                    android:textSize="16sp"
-                    android:id="@+id/editNoteContent" />
-
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
@@ -131,14 +117,6 @@
         android:layout_marginBottom="5dp"
         android:visibility="gone"
         android:layout_alignParentBottom="true">
-
-        <com.yahiaangelo.markdownedittext.MarkdownStylesBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/stylesBar"
-            android:layout_margin="10dp"
-            android:elevation="5dp"
-            android:padding="5dp"/>
     </LinearLayout>
 
 </RelativeLayout>

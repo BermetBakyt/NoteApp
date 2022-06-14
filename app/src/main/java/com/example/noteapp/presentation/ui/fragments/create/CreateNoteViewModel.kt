@@ -10,14 +10,14 @@ class CreateNoteViewModel(
     private val createNoteUseCase: CreateNoteUseCase
 ) : BaseViewModel() {
 
-    private val _createNoteState = MutableUIStateFlow<NoteUI>()
-    val createNoteState = _createNoteState.asStateFlow()
-
-    fun createNewNote() {
-        createNoteUseCase().collectRequest(_createNoteState) {
-            it.map { data ->
-                data.toNoteUI()
-            }
-        }
-    }
+//    private val _createNoteState = MutableUIStateFlow<NoteUI>()
+//    val createNoteState = _createNoteState.asStateFlow()
+//
+//    fun createNewNote() {
+//        createNoteUseCase().collectRequest(_createNoteState) {
+//            it.map { data ->
+//                data.toNoteUI()
+//            }
+//        }
+//    }
 }
