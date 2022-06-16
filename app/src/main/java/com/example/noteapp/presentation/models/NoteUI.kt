@@ -7,10 +7,12 @@ data class NoteUI(
    override val id: Int,
     val title: String,
     val content: String,
-    val timestamp: String,
-    val color: Int = -1
 ): IBaseDiffModel
 
 fun Note.toNoteUI() = NoteUI(
-    id, title, content, timestamp, color
+    id, title, content
+)
+
+fun NoteUI.toNote() = Note(
+    id, title, content
 )

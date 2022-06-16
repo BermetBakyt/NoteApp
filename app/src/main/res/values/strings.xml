@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">NoteApp</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_username">Name</string>
+    <string name="action_to_login_fragment">Already have account, Login</string>
+    <string name="action_to_register_fragment">Go to register page</string>
+    <string name="action_sign_in_email">Sign in</string>
+    <string name="action_sign_in_google">Sign in </string>
+    <string name="welcome">"Welcome to Note App!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+
+    <string name="my_notes">My Notes</string>
+    <string name="search_here">Search here....</string>
+    <string name="clear">clear</string>
+    <string name="no_data">no_data</string>
+    <string name="sign_out_menu_txt">no_data</string>
+    <string name="personal_account_text">My account</string>
+    <string name="add_note">Add Note</string>
+    <string name="choose_color">Choose Color</string>
+    <string name="sample_text">Lorem Ipsum is simply dummy text of
+        the printing and typesetting industry. Lorem Ipsum has been
+        the industry\'s standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled
+        it to make a type specimen book. It has survived not only five
+        centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged.
+    </string>
+
+    <string name="login_unsuccessful_msg">Вход не выполнен</string>
+    <string name="login_successful_msg">Вход успешно выполнен</string>
+    <string name="edited_on">Edited on: %1$s</string>
+
+    <string name="webclient_id">268422482842-n33qu4jb6na2oag0upvfq15p3oh93e9d.apps.googleusercontent.com</string>
+
+</resources>

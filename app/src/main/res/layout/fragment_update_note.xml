@@ -26,25 +26,6 @@
             android:src="@drawable/ic_round_arrow_back_24"
             android:id="@+id/backBtn"/>
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/lastEdited"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:paddingStart="13dp"
-            android:paddingEnd="13dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:ellipsize="end"
-            android:fontFamily="@font/google_sans_regular"
-            tools:text="Edited On"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:layout_centerVertical="true"
-            android:textStyle="bold"
-            android:textAlignment="center"/>
-
-
         <ImageView
             android:id="@+id/saveNote"
             android:layout_width="wrap_content"
@@ -92,18 +73,24 @@
                     android:fontFamily="@font/google_sans_medium"
                     android:hint="Note Title"/>
 
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:background="@null"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="100dp"
+                    android:id="@+id/editNoteContent"
+                    android:paddingBottom="500dp"
+                    android:inputType="none"
+                    android:textSize="22sp"
+                    android:importantForAutofill="no"
+                    android:fontFamily="@font/google_sans_medium"
+                    android:hint="Note"/>
+
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_color_picker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_gravity="bottom|right"
-            android:src="@drawable/ic_baseline_color_lens_24"
-            android:tint="@color/purple"
-            app:backgroundTint="@color/purple"/>
 
     </FrameLayout>
 

@@ -6,15 +6,13 @@ import kotlinx.coroutines.flow.Flow
 
 interface NoteRepository {
 
-    fun createNote() : Flow<Either<String, Note>>
+    fun createNote(note: Note): Flow<Either<String, Unit>>
 
-    fun deleteNote() :  Flow<Either<String, Note>>
+    fun deleteNote(note: Note): Flow<Either<String, Unit>>
 
-    fun updateNote() : Flow<Either<String, Note>>
+    fun updateNote(note: Note): Flow<Either<String, Unit>>
 
-    fun fetchNotes() : Flow<Either<String, List<Note>>>
+    fun fetchNotes(): Flow<Either<String, List<Note>>>
 
-    fun searchNotes() : Flow<Either<String, Note>>
-
-    fun getNoteById(id: Int) : Note
+    fun getNoteById(id: Int): Flow<Either<String, Note>>
 }

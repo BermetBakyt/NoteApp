@@ -4,9 +4,13 @@ import com.example.noteapp.presentation.base.BaseViewModel
 import com.example.noteapp.presentation.models.NoteUI
 import com.example.noteapp.presentation.models.toNoteUI
 import com.example.use_cases.note.FetchNotesUseCase
+import com.example.use_cases.note.GetNoteByIdUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.asStateFlow
+import javax.inject.Inject
 
-class NotesViewModel(
+@HiltViewModel
+class NotesViewModel @Inject constructor(
     private val fetchNotesUseCase: FetchNotesUseCase
 ) : BaseViewModel() {
 
@@ -14,10 +18,7 @@ class NotesViewModel(
     val noteListState = _noteListState.asStateFlow()
 
     fun fetchNotes() {
-        fetchNotesUseCase().collectRequest(_noteListState) { data ->
-            data.map {
-                it.toNoteUI()
-            }
-        }
+        fetchNotesUseCase().collectRequest(_noteListState) { it ->
+            it.map { it.toNoteUI() } }
     }
 }

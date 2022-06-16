@@ -7,10 +7,13 @@ import com.example.db.entities.NoteEntity
 
 @Database(
     entities = [NoteEntity::class],
-    version = 1,
-    exportSchema = false
+    version = 1
 )
-abstract class NoteDatabase  : RoomDatabase() {
+abstract class NoteDatabase: RoomDatabase() {
 
-    abstract fun getNoteDao() : NoteDao
+    abstract val noteDao: NoteDao
+
+    companion object {
+        const val DATABASE_NAME = "notes_db"
+    }
 }

@@ -2,24 +2,22 @@ package com.example.db.dao
 
 import androidx.room.*
 import com.example.db.entities.NoteEntity
+import com.example.model.Note
 
 @Dao
 interface NoteDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun addNote(note: NoteEntity) : NoteEntity
+    suspend fun addNote(noteEntity: NoteEntity)
 
     @Update
-    suspend fun updateNote() : NoteEntity
+    suspend fun updateNote(noteEntity: NoteEntity)
 
     @Query("SELECT * FROM NoteEntity ORDER BY id DESC")
-    suspend fun fetchAllNotes() : List<NoteEntity>
-
-    @Query("SELECT * FROM NoteEntity WHERE title LIKE:query OR content LIKE:query")
-    suspend fun searchNote(query: String) : List<NoteEntity>
+    fun fetchAllNotes() : List<NoteEntity>
 
     @Delete
-    suspend fun deleteNote() : NoteEntity
+    suspend fun deleteNote(noteEntity: NoteEntity)
 
     @Query("SELECT * FROM NoteEntity WHERE id= :id")
     suspend fun getNoteById(id: Int) : NoteEntity

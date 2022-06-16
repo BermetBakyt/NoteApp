@@ -31,7 +31,6 @@ class NoteAdapter(
             binding.apply {
                 noteContentItem.text = note.content
                 noteItemTitle.text = note.title
-                noteDate.text = note.timestamp
             }
         }
     }

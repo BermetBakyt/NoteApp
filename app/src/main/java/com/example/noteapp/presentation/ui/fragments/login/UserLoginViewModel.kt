@@ -2,8 +2,11 @@ package com.example.noteapp.presentation.ui.fragments.login
 
 import androidx.lifecycle.map
 import com.example.noteapp.presentation.base.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class UserLoginViewModel : BaseViewModel() {
+@HiltViewModel
+class UserLoginViewModel @Inject constructor() : BaseViewModel() {
 
     enum class AuthenticationState {
         AUTHENTICATED, UNAUTHENTICATED, INVALID_AUTHENTICATION

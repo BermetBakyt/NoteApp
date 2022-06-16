@@ -31,4 +31,19 @@ open class BaseViewModel : ViewModel() {
             }
         }
     }
+
+    protected fun <T> Flow<Either<String, T>>.setData(
+        state: MutableStateFlow<UIState<Unit>>,
+        onSuccess: () -> Unit = { }
+    ) {
+        viewModelScope.launch(Dispatchers.IO) {
+            state.value = UIState.Loading()
+            this@setData.collect {
+                when (it) {
+                    is Either.Left -> state.value = UIState.Error(it.value)
+                    is Either.Right -> state.value = UIState.Success(onSuccess.invoke())
+                }
+            }
+        }
+    }
 }

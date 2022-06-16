@@ -93,18 +93,24 @@
                     android:fontFamily="@font/google_sans_medium"
                     android:hint="Note Title"/>
 
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:background="@null"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="100dp"
+                    android:id="@+id/editNoteContent"
+                    android:paddingBottom="500dp"
+                    android:inputType="none"
+                    android:textSize="22sp"
+                    android:importantForAutofill="no"
+                    android:fontFamily="@font/google_sans_medium"
+                    android:hint="Note"/>
+
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_color_picker"
-            android:layout_width="33dp"
-            android:layout_height="33dp"
-            android:layout_gravity="bottom|right"
-            android:layout_margin="15dp"
-            android:src="@drawable/ic_baseline_color_lens_24"
-            android:tint="@color/purple"
-            app:backgroundTint="@color/purple" />
 
     </FrameLayout>
 
