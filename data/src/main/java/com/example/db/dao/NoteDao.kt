@@ -23,6 +23,6 @@ interface NoteDao {
     suspend fun getNoteById(id: Int) : NoteEntity
 
     @Query("SELECT MAX(id) FROM NoteEntity")
-    suspend fun getMaxId(id: Int) : Int
+    suspend fun getMaxId() : Int
 
 }

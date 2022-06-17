@@ -6,5 +6,5 @@ import javax.inject.Inject
 class FetchMaxIdUseCase @Inject constructor(
     private val repository: NoteRepository
 ){
-    operator fun invoke(id: Int) = repository.fetchMaxId(id)
+    operator fun invoke() = repository.fetchMaxId()
 }

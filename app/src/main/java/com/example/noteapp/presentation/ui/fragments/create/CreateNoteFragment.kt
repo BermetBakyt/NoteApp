@@ -7,6 +7,7 @@ import com.example.noteapp.R
 import com.example.noteapp.databinding.FragmentCreateNoteBinding
 import com.example.noteapp.presentation.base.BaseFragment
 import com.example.noteapp.presentation.extensions.showToastShort
+import com.example.noteapp.presentation.models.NoteUI
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,12 +23,23 @@ class CreateNoteFragment(
 
         saveNote.setOnClickListener {
             viewModel.createNote(
-                title = editTitle.text.toString(),
-                content = editNoteContent.text.toString(),
-                id = 1,
+                NoteUI(
+                    id.inc(),
+                    editNoteContent.text.toString(),
+                    editTitle.text.toString(),
+
+
+                )
             )
-            viewModel.fetchMaxId(id)
+
         }
+//            viewModel.createNote(
+//                title = editTitle.text.toString(),
+//                content = editNoteContent.text.toString(),
+//                id = 1,
+//            )
+//            viewModel.fetchMaxId(id)
+//        }
 
         backBtn.setOnClickListener {
             findNavController().navigate(
@@ -47,15 +59,15 @@ class CreateNoteFragment(
             }
         )
 
-        viewModel.noteIdState.collectUIState(
-            onError = {
-                showToastShort(it)
-            },
-            onSuccess = {
-                showToastShort("Note saved")
-
-            }
-        )
+//        viewModel.noteIdState.collectUIState(
+//            onError = {
+//                showToastShort(it)
+//            },
+//            onSuccess = {
+//                showToastShort("Note saved")
+//
+//            }
+//        )
     }
 
 

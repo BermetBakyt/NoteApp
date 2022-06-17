@@ -32,7 +32,7 @@ class NoteRepositoryImpl @Inject constructor(
         dao.getNoteById(id).toNote()
     }
 
-    override fun fetchMaxId(id: Int) = doRequest {
-        dao.getMaxId(id)
+    override fun fetchMaxId() = doRequest {
+        dao.getMaxId()
     }
 }

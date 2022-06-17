@@ -8,6 +8,7 @@ import com.example.noteapp.R
 import com.example.noteapp.databinding.FragmentUpdateNoteBinding
 import com.example.noteapp.presentation.base.BaseFragment
 import com.example.noteapp.presentation.extensions.showToastShort
+import com.example.noteapp.presentation.models.NoteUI
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
 
@@ -28,11 +29,23 @@ class UpdateNoteFragment(
 
         saveNote.setOnClickListener {
             viewModel.updateNote(
-                title = editTitle.text.toString(),
-                content = editNoteContent.text.toString(),
-                id = args.id,
+                NoteUI(
+                    id.inc(),
+                    editNoteContent.text.toString(),
+                    editTitle.text.toString(),
+
+
+                    )
             )
+
         }
+//        saveNote.setOnClickListener {
+//            viewModel.updateNote(
+//                title = editTitle.text.toString(),
+//                content = editNoteContent.text.toString(),
+//                id = args.id,
+//            )
+//        }
 
         backBtn.setOnClickListener {
             findNavController().navigate(
@@ -57,8 +70,7 @@ class UpdateNoteFragment(
                 showToastShort(it)
             },
             onSuccess = {
-                editTitle.setText(it.toString())
-                editNoteContent.setText(it.toString())
+                showToastShort("Note saved")
             }
         )
     }

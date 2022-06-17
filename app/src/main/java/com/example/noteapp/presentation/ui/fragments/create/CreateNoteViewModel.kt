@@ -2,6 +2,8 @@ package com.example.noteapp.presentation.ui.fragments.create
 
 import com.example.model.Note
 import com.example.noteapp.presentation.base.BaseViewModel
+import com.example.noteapp.presentation.models.NoteUI
+import com.example.noteapp.presentation.models.toNote
 import com.example.use_cases.note.CreateNoteUseCase
 import com.example.use_cases.note.FetchMaxIdUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,20 +19,20 @@ class CreateNoteViewModel @Inject constructor(
     private val _createNoteState = MutableUIStateFlow<Unit>()
     val createNoteState = _createNoteState.asStateFlow()
 
-    fun createNote(title: String, content: String, id: Int) {
-        createNoteUseCase(makeNote(id, content, title)).setData(_createNoteState)
+    fun createNote(note: NoteUI) {
+        createNoteUseCase(note.toNote()).collectRequest(_createNoteState) { }
     }
 
-    private val _noteIdState = MutableUIStateFlow<Unit>()
-    val noteIdState = _noteIdState.asStateFlow()
+//    private val _noteIdState = MutableUIStateFlow<Unit>()
+//    val noteIdState = _noteIdState.asStateFlow()
+//
+//    fun fetchMaxId() {
+//        fetchMaxIdUseCase().collectRequest(_noteIdState){ it.inc() }
+//    }
 
-    fun fetchMaxId(id: Int) {
-        fetchMaxIdUseCase(id).collectRequest(_noteIdState){ it }
-    }
-
-    private fun makeNote(id: Int, title: String, content: String) = Note(
-        id = id,
-        content = content,
-        title = title,
-    )
+//    private fun makeNote(id: Int, title: String, content: String) = Note(
+//        id = id,
+//        content = content,
+//        title = title,
+//    )
 }
