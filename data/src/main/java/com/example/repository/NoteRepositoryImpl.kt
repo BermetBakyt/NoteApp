@@ -31,4 +31,8 @@ class NoteRepositoryImpl @Inject constructor(
     override fun getNoteById(id: Int) = doRequest {
         dao.getNoteById(id).toNote()
     }
+
+    override fun fetchMaxId(id: Int) = doRequest {
+        dao.getMaxId(id)
+    }
 }

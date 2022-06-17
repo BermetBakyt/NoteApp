@@ -1,6 +1,7 @@
 package com.example.noteapp.presentation.ui.fragments.list
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,18 +19,10 @@ class NotesFragment : BaseFragment<NotesViewModel, FragmentListBinding>(
 ) {
     override val viewModel: NotesViewModel by viewModels()
     override val binding by viewBinding(FragmentListBinding::bind)
+
     private val notesAdapter = NoteAdapter(
-        this::onNoteClicked
+        this::action
     )
-
-    private fun onNoteClicked(id: Int) {
-        findNavController().navigate(
-            NotesFragmentDirections.actionListFragmentToUpdateNoteFragment(
-                id = id
-            )
-        )
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -42,17 +35,27 @@ class NotesFragment : BaseFragment<NotesViewModel, FragmentListBinding>(
         setupListAdapter()
     }
 
+    private fun action(id:Int) {
+        Log.e("fragment", "invoked")
+
+        findNavController().navigate(
+            NotesFragmentDirections.actionListFragmentToUpdateNoteFragment(id)
+        )
+    }
+
+    private fun setupListAdapter() = with(binding) {
+        with(recyclerViewNotes) {
+            adapter = notesAdapter
+            layoutManager = LinearLayoutManager(context)
+        }
+    }
+
     override fun setupListeners() = with(binding) {
         super.setupListeners()
 
         fabText.setOnClickListener {
             findNavController().navigate(NotesFragmentDirections.actionListFragmentToCreateNoteFragment())
         }
-    }
-
-    private fun setupListAdapter() = with(binding.recyclerViewNotes) {
-        this.adapter = notesAdapter
-        layoutManager = LinearLayoutManager(context)
     }
 
     override fun setupSubscribers() = with(binding) {

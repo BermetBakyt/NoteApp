@@ -7,7 +7,7 @@ import com.example.model.Note
 @Dao
 interface NoteDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addNote(noteEntity: NoteEntity)
 
     @Update
@@ -21,4 +21,8 @@ interface NoteDao {
 
     @Query("SELECT * FROM NoteEntity WHERE id= :id")
     suspend fun getNoteById(id: Int) : NoteEntity
+
+    @Query("SELECT MAX(id) FROM NoteEntity")
+    suspend fun getMaxId(id: Int) : Int
+
 }

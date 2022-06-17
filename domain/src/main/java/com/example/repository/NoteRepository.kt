@@ -15,4 +15,6 @@ interface NoteRepository {
     fun fetchNotes(): Flow<Either<String, List<Note>>>
 
     fun getNoteById(id: Int): Flow<Either<String, Note>>
+
+    fun fetchMaxId(id: Int) : Flow<Either<String, Int>>
 }

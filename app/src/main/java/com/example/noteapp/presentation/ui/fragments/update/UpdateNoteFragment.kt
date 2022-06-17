@@ -12,10 +12,11 @@ import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 @AndroidEntryPoint
-class UpdateNoteFragment : BaseFragment<UpdateNoteViewModel, FragmentUpdateNoteBinding>(
+class UpdateNoteFragment(
+) : BaseFragment<UpdateNoteViewModel, FragmentUpdateNoteBinding>(
     R.layout.fragment_update_note
 ){
-    override val binding: FragmentUpdateNoteBinding by viewBinding(FragmentUpdateNoteBinding::bind)
+    override val binding by viewBinding(FragmentUpdateNoteBinding::bind)
     override val viewModel: UpdateNoteViewModel by viewModels()
     private val args: UpdateNoteFragmentArgs by navArgs()
 
@@ -48,6 +49,16 @@ class UpdateNoteFragment : BaseFragment<UpdateNoteViewModel, FragmentUpdateNoteB
             onSuccess = {
                 editTitle.setText(it.title)
                 editNoteContent.setText(it.content)
+            }
+        )
+
+        viewModel.updateNoteState.collectUIState(
+            onError = {
+                showToastShort(it)
+            },
+            onSuccess = {
+                editTitle.setText(it.toString())
+                editNoteContent.setText(it.toString())
             }
         )
     }

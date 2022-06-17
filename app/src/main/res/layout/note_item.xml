@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="5dp"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -12,8 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="?attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
         android:padding="5dp"
         app:cardCornerRadius="13dp">
 
@@ -52,28 +50,7 @@
                 android:maxLines="12"
                 android:padding="5dp"
                 android:textSize="14sp"
-                tools:text="@string/sample_text"/>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/noteDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_below="@id/noteContentItem"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="4dp"
-                android:padding="5dp"
-                android:ellipsize="end"
-                app:drawableTint="@color/black"
-                android:layout_alignParentEnd="true"
-                android:drawableStart="@drawable/ic_outline_calendar_today_24"
-                android:fontFamily="@font/google_sans_regular"
-                android:drawablePadding="6dp"
-                android:text="dd-mm-yy"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:textAlignment="textStart"/>
-
+                tools:text="@string/sample_text" />
         </RelativeLayout>
 
     </com.google.android.material.card.MaterialCardView>

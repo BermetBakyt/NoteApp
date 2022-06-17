@@ -27,25 +27,6 @@
             android:src="@drawable/ic_round_arrow_back_24"
             android:id="@+id/backBtn"/>
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/lastEdited"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:paddingStart="13dp"
-            android:paddingEnd="13dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:ellipsize="end"
-            android:fontFamily="@font/google_sans_regular"
-            tools:text="Edited On"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:layout_centerVertical="true"
-            android:textStyle="bold"
-            android:textAlignment="center"/>
-
-
         <ImageView
             android:id="@+id/saveNote"
             android:layout_width="wrap_content"

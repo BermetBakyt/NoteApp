@@ -26,6 +26,7 @@ class CreateNoteFragment(
                 content = editNoteContent.text.toString(),
                 id = 1,
             )
+            viewModel.fetchMaxId(id)
         }
 
         backBtn.setOnClickListener {
@@ -42,7 +43,20 @@ class CreateNoteFragment(
             },
             onSuccess = {
                 showToastShort("Note saved")
+
+            }
+        )
+
+        viewModel.noteIdState.collectUIState(
+            onError = {
+                showToastShort(it)
+            },
+            onSuccess = {
+                showToastShort("Note saved")
+
             }
         )
     }
+
+
 }
