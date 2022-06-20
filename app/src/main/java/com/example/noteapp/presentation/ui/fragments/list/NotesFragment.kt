@@ -1,6 +1,5 @@
 package com.example.noteapp.presentation.ui.fragments.list
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -8,7 +7,6 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -17,14 +15,10 @@ import com.example.noteapp.databinding.FragmentListBinding
 import com.example.noteapp.presentation.adapters.NoteAdapter
 import com.example.noteapp.presentation.base.BaseFragment
 import com.example.noteapp.presentation.extensions.showToastShort
-import com.example.noteapp.presentation.ui.fragments.login.UserLoginFragment
-import com.example.noteapp.presentation.ui.fragments.login.UserLoginFragmentDirections
-import com.example.noteapp.presentation.ui.fragments.login.UserLoginViewModel
 import com.firebase.ui.auth.AuthUI
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
