@@ -15,12 +15,6 @@
 
     <string name="delete_fab">"Delete Note"</string>
 
-
-    <string name="my_notes">My Notes</string>
-    <string name="search_here">Search here....</string>
-    <string name="clear">clear</string>
-    <string name="no_data">no_data</string>
-    <string name="sign_out_menu_txt">no_data</string>
     <string name="personal_account_text">My account</string>
     <string name="add_note">Add Note</string>
     <string name="choose_color">Choose Color</string>
@@ -32,10 +26,6 @@
         centuries, but also the leap into electronic typesetting,
         remaining essentially unchanged.
     </string>
-
-    <string name="login_unsuccessful_msg">Вход не выполнен</string>
-    <string name="login_successful_msg">Вход успешно выполнен</string>
-    <string name="edited_on">Edited on: %1$s</string>
 
     <string name="webclient_id">268422482842-n33qu4jb6na2oag0upvfq15p3oh93e9d.apps.googleusercontent.com</string>
 
