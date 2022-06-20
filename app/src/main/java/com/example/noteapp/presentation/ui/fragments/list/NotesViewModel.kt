@@ -1,8 +1,10 @@
 package com.example.noteapp.presentation.ui.fragments.list
 
+import androidx.lifecycle.map
 import com.example.noteapp.presentation.base.BaseViewModel
 import com.example.noteapp.presentation.models.NoteUI
 import com.example.noteapp.presentation.models.toNoteUI
+import com.example.noteapp.presentation.ui.fragments.login.FirebaseUserLiveData
 import com.example.use_cases.note.FetchNotesUseCase
 import com.example.use_cases.note.GetNoteByIdUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,5 +22,17 @@ class NotesViewModel @Inject constructor(
     fun fetchNotes() {
         fetchNotesUseCase().collectRequest(_noteListState) { it ->
             it.map { it.toNoteUI() } }
+    }
+
+    enum class AuthenticationState {
+        AUTHENTICATED, UNAUTHENTICATED, INVALID_AUTHENTICATION
+    }
+
+    val authenticationState = FirebaseUserLiveData().map { user ->
+        if (user != null) {
+            AuthenticationState.AUTHENTICATED
+        } else {
+            AuthenticationState.UNAUTHENTICATED
+        }
     }
 }

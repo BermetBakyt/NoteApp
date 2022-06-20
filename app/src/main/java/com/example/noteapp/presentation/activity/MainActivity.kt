@@ -36,18 +36,4 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.mainFragment)
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return super.onOptionsItemSelected(item)
-        when(item.itemId) {
-            R.id.sign_out_item -> {
-                FirebaseAuth.getInstance().signOut()
-            }
-        }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        return super.onCreateOptionsMenu(menu)
-        menuInflater.inflate(R.menu.menu, menu)
-    }
 }

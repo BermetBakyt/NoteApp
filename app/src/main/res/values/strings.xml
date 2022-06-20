@@ -9,9 +9,11 @@
     <string name="action_sign_in_email">Sign in</string>
     <string name="action_sign_in_google">Sign in </string>
     <string name="welcome">"Welcome to Note App!"</string>
+    <string name="login_required">"Please login first!"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="log_out">"Log out"</string>
+    <string name="login_unsuccessful_msg">"Login failed"</string>
 
     <string name="delete_fab">"Delete Note"</string>
 

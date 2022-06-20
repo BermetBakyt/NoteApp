@@ -20,6 +20,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class UserLoginFragment(
 ) : BaseFragment<UserLoginViewModel, FragmentLoginBinding>(
@@ -96,6 +97,7 @@ class UserLoginFragment(
                         Snackbar.LENGTH_LONG
                     ).show()
                 }
+
                 else -> Log.e(
                     TAG,
                     "Authentication state that doesn't require any UI change $authenticationState"
