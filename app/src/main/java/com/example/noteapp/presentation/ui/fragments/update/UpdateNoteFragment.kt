@@ -10,13 +10,12 @@ import com.example.noteapp.presentation.base.BaseFragment
 import com.example.noteapp.presentation.extensions.showToastShort
 import com.example.noteapp.presentation.models.NoteUI
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.lifecycle.HiltViewModel
 
 @AndroidEntryPoint
 class UpdateNoteFragment(
 ) : BaseFragment<UpdateNoteViewModel, FragmentUpdateNoteBinding>(
     R.layout.fragment_update_note
-){
+) {
     override val binding by viewBinding(FragmentUpdateNoteBinding::bind)
     override val viewModel: UpdateNoteViewModel by viewModels()
     private val args: UpdateNoteFragmentArgs by navArgs()
@@ -30,22 +29,22 @@ class UpdateNoteFragment(
         saveNote.setOnClickListener {
             viewModel.updateNote(
                 NoteUI(
-                    id.inc(),
+                    args.id,
                     editNoteContent.text.toString(),
                     editTitle.text.toString(),
-
-
-                    )
+                )
             )
-
         }
-//        saveNote.setOnClickListener {
-//            viewModel.updateNote(
-//                title = editTitle.text.toString(),
-//                content = editNoteContent.text.toString(),
-//                id = args.id,
-//            )
-//        }
+
+        deleteNote.setOnClickListener {
+            viewModel.deleteNote(
+                NoteUI(
+                    args.id,
+                    editNoteContent.text.toString(),
+                    editTitle.text.toString(),
+                )
+            )
+        }
 
         backBtn.setOnClickListener {
             findNavController().navigate(
@@ -71,6 +70,15 @@ class UpdateNoteFragment(
             },
             onSuccess = {
                 showToastShort("Note saved")
+            }
+        )
+
+        viewModel.deleteNoteState.collectUIState(
+            onError = {
+                showToastShort(it)
+            },
+            onSuccess = {
+                showToastShort("Note deleted")
             }
         )
     }

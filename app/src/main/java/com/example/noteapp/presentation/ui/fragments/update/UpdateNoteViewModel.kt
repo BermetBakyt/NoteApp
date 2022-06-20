@@ -5,6 +5,7 @@ import com.example.noteapp.presentation.base.BaseViewModel
 import com.example.noteapp.presentation.models.NoteUI
 import com.example.noteapp.presentation.models.toNote
 import com.example.noteapp.presentation.models.toNoteUI
+import com.example.use_cases.note.DeleteNoteUseCase
 import com.example.use_cases.note.GetNoteByIdUseCase
 import com.example.use_cases.note.UpdateNoteUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,8 +14,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class UpdateNoteViewModel @Inject constructor(
+    private val deleteNoteUseCase: DeleteNoteUseCase,
     private val updateNoteUseCase: UpdateNoteUseCase,
-    private val getNoteByIdUseCase: GetNoteByIdUseCase
+    private val getNoteByIdUseCase: GetNoteByIdUseCase,
 ) : BaseViewModel(){
 
     private val _updateNoteState = MutableUIStateFlow<Unit>()
@@ -23,21 +25,18 @@ class UpdateNoteViewModel @Inject constructor(
     private val _fetchNoteState = MutableUIStateFlow<NoteUI>()
     val fetchNoteState = _fetchNoteState.asStateFlow()
 
+    private val _deleteNoteState = MutableUIStateFlow<Unit>()
+    val deleteNoteState = _deleteNoteState.asStateFlow()
+
     fun updateNote(existingNote: NoteUI) {
         updateNoteUseCase(existingNote.toNote()).collectRequest(_updateNoteState) {}
     }
-//    fun updateNote(title: String, content: String, id: Int) {
-//        updateNoteUseCase(updateNote(id, content, title)).collectRequest(_updateNoteState){ it }
-//    }
-//
-//    private fun updateNote(id: Int, title: String, content: String) = Note(
-//        id = id,
-//        content = content,
-//        title = title
-//    )
+
+    fun deleteNote(existingNote: NoteUI) {
+        deleteNoteUseCase(existingNote.toNote()).collectRequest(_deleteNoteState) {}
+    }
 
     fun fetchNoteDetail(id: Int) {
         getNoteByIdUseCase(id).collectRequest(_fetchNoteState) { it.toNoteUI()}
     }
-
 }

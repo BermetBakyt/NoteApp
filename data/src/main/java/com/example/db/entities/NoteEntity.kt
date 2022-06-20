@@ -8,7 +8,7 @@ import java.io.Serializable
 @Entity
 class NoteEntity(
     @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
+    val id: Int,
     val title: String,
     val content: String
 ) : Serializable

@@ -22,24 +22,8 @@ class CreateNoteFragment(
     override fun setupListeners() = with(binding) {
 
         saveNote.setOnClickListener {
-            viewModel.createNote(
-                NoteUI(
-                    id.inc(),
-                    editNoteContent.text.toString(),
-                    editTitle.text.toString(),
-
-
-                )
-            )
-
+            viewModel.fetchMaxId()
         }
-//            viewModel.createNote(
-//                title = editTitle.text.toString(),
-//                content = editNoteContent.text.toString(),
-//                id = 1,
-//            )
-//            viewModel.fetchMaxId(id)
-//        }
 
         backBtn.setOnClickListener {
             findNavController().navigate(
@@ -59,15 +43,20 @@ class CreateNoteFragment(
             }
         )
 
-//        viewModel.noteIdState.collectUIState(
-//            onError = {
-//                showToastShort(it)
-//            },
-//            onSuccess = {
-//                showToastShort("Note saved")
-//
-//            }
-//        )
+        viewModel.noteIdState.collectUIState(
+            onError = {
+                showToastShort(it)
+            },
+            onSuccess = {
+                viewModel.createNote(
+                    NoteUI(
+                        it.inc(),
+                        editNoteContent.text.toString(),
+                        editTitle.text.toString(),
+                    )
+                )
+            }
+        )
     }
 
 

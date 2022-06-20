@@ -23,16 +23,18 @@ class CreateNoteViewModel @Inject constructor(
         createNoteUseCase(note.toNote()).collectRequest(_createNoteState) { }
     }
 
-//    private val _noteIdState = MutableUIStateFlow<Unit>()
-//    val noteIdState = _noteIdState.asStateFlow()
-//
-//    fun fetchMaxId() {
-//        fetchMaxIdUseCase().collectRequest(_noteIdState){ it.inc() }
-//    }
+    private val _noteIdState = MutableUIStateFlow<Int>()
+    val noteIdState = _noteIdState.asStateFlow()
 
-//    private fun makeNote(id: Int, title: String, content: String) = Note(
-//        id = id,
-//        content = content,
-//        title = title,
-//    )
+    fun fetchMaxId() {
+        fetchMaxIdUseCase().collectRequest(_noteIdState){
+            it
+        }
+    }
+
+     fun makeNote(id: Int, title: String, content: String) = Note(
+        id = id,
+        content = content,
+        title = title,
+    )
 }

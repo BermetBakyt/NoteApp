@@ -13,6 +13,8 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
 
+    <string name="delete_fab">"Delete Note"</string>
+
 
     <string name="my_notes">My Notes</string>
     <string name="search_here">Search here....</string>

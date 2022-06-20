@@ -25,7 +25,7 @@ class NoteAdapter(
 
             binding.root.setOnClickListener {
                 Log.e("adapter", "invoked")
-                action(note.id)
+                note.id?.let { it1 -> action(it1) }
             }
         }
     }

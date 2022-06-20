@@ -7,7 +7,7 @@ import com.example.model.Note
 @Dao
 interface NoteDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addNote(noteEntity: NoteEntity)
 
     @Update

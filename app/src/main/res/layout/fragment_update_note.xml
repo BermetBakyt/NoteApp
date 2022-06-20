@@ -94,16 +94,22 @@
 
     </FrameLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/bottomBar"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:layout_marginBottom="5dp"
-        android:visibility="gone"
-        android:layout_alignParentBottom="true">
-
-    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/deleteNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/delete_fab"
+        android:paddingBottom="5dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_baseline_delete_24"
+        app:backgroundTint="@color/white"
+        app:tint="@color/black"/>
 
 </RelativeLayout>
